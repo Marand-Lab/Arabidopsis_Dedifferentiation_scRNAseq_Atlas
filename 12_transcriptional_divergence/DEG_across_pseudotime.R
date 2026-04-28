@@ -120,7 +120,7 @@ PTdegs <- function(counts,
 ##########################################################################
 
 # load reverse pseudotime data
-dir <- "/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/"
+dir <- "/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/"
 pw <- list.files(path=dir, pattern="PROB_WALKS*")
 pwd <- lapply(pw, function(z){
   unique(unlist(readRDS(paste0(dir,z))$paths))
@@ -130,15 +130,15 @@ names(pwd) <- gsub("cluster\\.","cluster_",names(pwd))
 names(pwd) <- gsub("\\.rds","",names(pwd))
 
 # meta data
-m <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/diffusion_pseudotime.metadata.all_cells.palantir.11.19.2025.knn30.real_time.cellfate.txt")
+m <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/diffusion_pseudotime.metadata.all_cells.palantir.11.19.2025.knn30.real_time.cellfate.txt")
 pt <- m$consensus_pseudotime
 names(pt) <- rownames(m)
 
 # gene annotation
-ann <- read.table("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/Arabidopsis_thaliana.TAIR10.58.annotation.txt", header=F)
+ann <- read.table("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/Arabidopsis_thaliana.TAIR10.58.annotation.txt", header=F)
 
 # seurat object
-obj <- readRDS("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/step1_palantir_obj_100DC_harmony_knn.15.10.21.2025.knn30.rds")
+obj <- readRDS("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/step1_palantir_obj_100DC_harmony_knn.15.10.21.2025.knn30.rds")
 expr <- obj@assays$RNA$data
 
 

@@ -186,7 +186,7 @@ reduc <- "harmony"
 num.dims <- 30
 
 # protoplast genes
-#pgenes <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step2_cluster_cells/protoplasting_induced_genes_fc2_qval0.01.txt", header=T)
+#pgenes <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step2_cluster_cells/protoplasting_induced_genes_fc2_qval0.01.txt", header=T)
 
 # remove chloroplast/mitochondrial genes
 c.genes <- rownames(a)[grepl("ATC", rownames(a))]

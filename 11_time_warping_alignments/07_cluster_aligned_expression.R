@@ -23,7 +23,7 @@ library(scales)
 
 # load data
 gs <- readRDS("traj_single_gene_alignments_classified.rds")
-dir <- "/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks"
+dir <- "/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks"
 dat <- list.files(path=dir, pattern="*.average_expression.rds")
 expr <- lapply(dat, function(z){readRDS(paste0(dir,"/",z))})
 
@@ -185,11 +185,11 @@ dev.off()
 
 # GO Enrichment for each k-means cluster
 k.genes <- readRDS("kmean_gene_data.03.09.2026.rds")
-ptag <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/GAM_FDR0.01_dedifferentiation_trajectories.txt", header=T)
+ptag <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/GAM_FDR0.01_dedifferentiation_trajectories.txt", header=T)
 
 # GSEA inputs
-gt <- read.delim("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/TAIR10_desc_GO_mapping.txt", header=F)
-gmt1 <- gmtPathways("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/TAIR10.GO")
+gt <- read.delim("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/TAIR10_desc_GO_mapping.txt", header=F)
+gmt1 <- gmtPathways("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/TAIR10.GO")
 gmt <- lapply(gmt1, function(z){df <- do.call(c, strsplit(z, ",")); df[df %in% ptag$geneID]})
 names(gmt) <- names(gmt1)
 

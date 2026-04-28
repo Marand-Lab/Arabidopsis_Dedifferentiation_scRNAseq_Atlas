@@ -3,7 +3,7 @@
 ## submission properties
 
 #SBATCH --partition=standard
-#SBATCH --account=amarand1
+#SBATCH --account=YOURNAME1
 #SBATCH --job-name=GAM_PATHS
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12

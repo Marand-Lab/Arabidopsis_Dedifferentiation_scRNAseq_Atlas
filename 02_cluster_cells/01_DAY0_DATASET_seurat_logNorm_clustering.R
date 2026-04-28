@@ -28,7 +28,7 @@ reduc <- "harmony"
 num.dims <- 30
 
 # protoplast genes
-pgenes <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step2_cluster_cells/protoplasting_induced_genes_fc2_qval0.01.txt", header=T)
+pgenes <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step2_cluster_cells/protoplasting_induced_genes_fc2_qval0.01.txt", header=T)
 
 # align meta and sparse data (remove doublets)
 b <- subset(b, b$dropletType=="Singlet" & b$treatment=="D0")

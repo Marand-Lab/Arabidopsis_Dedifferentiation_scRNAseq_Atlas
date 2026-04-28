@@ -133,7 +133,7 @@ fast_multilag_grn <- function(mat, regulators,
 ###########################################################################
 
 # load expression data
-dir <- "/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/"
+dir <- "/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/"
 files <- list.files(path=dir, pattern="*.average_expression.rds")
 a <- lapply(files, function(z){
   expr <- readRDS(paste0(dir,z))
@@ -152,7 +152,7 @@ names(pwd) <- gsub("cluster\\.","cluster_",names(pwd))
 names(pwd) <- gsub("\\.rds","",names(pwd))
 
 # meta data
-m <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/diffusion_pseudotime.metadata.all_cells.palantir.11.19.2025.knn30.real_time.cellfate.txt")
+m <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/diffusion_pseudotime.metadata.all_cells.palantir.11.19.2025.knn30.real_time.cellfate.txt")
 pt <- m$consensus_pseudotime
 names(pt) <- rownames(m)
 
@@ -161,7 +161,7 @@ gs <- readRDS("kmean_gene_data.03.19.2026.rds")
 alnG <- readRDS("traj_single_gene_alignments_classified.rds")
 
 # annotation
-ann <- read.table("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/Arabidopsis_thaliana.TAIR10.58.annotation.txt", header=F)
+ann <- read.table("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/Arabidopsis_thaliana.TAIR10.58.annotation.txt", header=F)
 
 
 ###########################################################################
@@ -227,8 +227,8 @@ saveRDS(expr.timing, file="Activation_timing.rds")
 ###########################################################################
 
 # go terms: transcription regulation, chromatin organization, signaling
-go <- read.delim("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/TAIR10.GO", header=F)
-gt <- read.delim("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/TAIR10_desc_GO_mapping.txt", header=F)
+go <- read.delim("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/TAIR10.GO", header=F)
+gt <- read.delim("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/TAIR10_desc_GO_mapping.txt", header=F)
 goterm <- gt$V2
 names(goterm) <- gt$V1
 df <- as.data.frame(do.call(rbind, strsplit(go$V1," "))[,1])
@@ -424,7 +424,7 @@ boxplot(regs$score~regs$known, outline=F)
 dev.off()
 
 # check GSEA of dedifferentiation potential genes
-gmt1 <- gmtPathways("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/TAIR10.GO")
+gmt1 <- gmtPathways("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/TAIR10.GO")
 gmt <- lapply(gmt1, function(z){df <- do.call(c, strsplit(z, ",")); df[df %in% rownames(regs)]})
 names(gmt) <- names(gmt1)
 gmtt <- lapply(gmt, function(z){if(length(z)<1){return(NULL)}else{return(z)}})
@@ -524,7 +524,7 @@ row.f <- row.ave[abs(row.ave)>=0.8]
 ## Dedifferentiation regulators are distinct to somatic identity genes
 ###########################################################################
 ctm <- read.table("top_arabidopsis_marker_genes.txt", header=T)
-conctm <- readRDS("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/misc/Consensus_marker_genes.Arabidopsis.rds")
+conctm <- readRDS("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/misc/Consensus_marker_genes.Arabidopsis.rds")
 conf <- subset(conctm, conctm$adjScore > 0.5)
 cts <- c("Guard_cell","Hydathodes","Leaf_epidermis","Leaf_guard_cell","Leaf_pavement_cell",
          "Mesophyll","Palisade_mesophyll","Spongy_mesophyll")

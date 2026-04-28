@@ -107,7 +107,7 @@ dev.off()
 ##########################################################################
 
 # load reverse pseudotime data
-dir <- "/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/"
+dir <- "/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/"
 pw <- list.files(path=dir, pattern="PROB_WALKS*")
 pwd <- lapply(pw, function(z){
   unique(unlist(readRDS(paste0(dir,z))$paths))
@@ -117,12 +117,12 @@ names(pwd) <- gsub("cluster\\.","cluster_",names(pwd))
 names(pwd) <- gsub("\\.rds","",names(pwd))
 
 # meta data
-m <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/diffusion_pseudotime.metadata.all_cells.palantir.11.19.2025.knn30.real_time.cellfate.txt")
+m <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/diffusion_pseudotime.metadata.all_cells.palantir.11.19.2025.knn30.real_time.cellfate.txt")
 pt <- m$consensus_pseudotime
 names(pt) <- rownames(m)
 
 # seurat object
-obj <- readRDS("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/step1_palantir_obj_100DC_harmony_knn.15.10.21.2025.knn30.rds")
+obj <- readRDS("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/step1_palantir_obj_100DC_harmony_knn.15.10.21.2025.knn30.rds")
 expr <- obj@assays$RNA$data
 
 # select cells
@@ -237,7 +237,7 @@ dev.off()
 
 # top markers
 mm <- read.table("top_arabidopsis_marker_genes.txt", header=T)
-conctm <- readRDS("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/misc/Consensus_marker_genes.Arabidopsis.rds")
+conctm <- readRDS("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/misc/Consensus_marker_genes.Arabidopsis.rds")
 ctsIDs <- c("Spongy_mesophyll","Palisade_mesophyll","Mesophyll","Leaf_guard_cell","Hydathodes", "Guard_cell")
 conctm <- conctm[conctm$clusterName %in% ctsIDs,]
 conf <- subset(conctm, conctm$adjScore > 0.5)

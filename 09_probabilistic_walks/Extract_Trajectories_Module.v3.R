@@ -5,7 +5,7 @@ library(igraph)
 library(FNN)
 library(Seurat)
 
-# /nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory
+# /nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory
 
 # arguments
 args <- commandArgs(T)

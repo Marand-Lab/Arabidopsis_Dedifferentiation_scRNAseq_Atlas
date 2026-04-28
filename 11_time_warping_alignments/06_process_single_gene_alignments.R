@@ -230,7 +230,7 @@ genescores <- do.call(rbind, genescores)
 saveRDS(genescores, file="traj_single_gene_alignments_classified.rds")
 
 # load expression info
-res <- read.table("/nfs/turbo/lsa-amarand/alex_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/GAM_FDR0.01_dedifferentiation_trajectories.txt", header=T)
+res <- read.table("/nfs/turbo/lsa-YOURNAME/YOURNAME_home/Arabidopsis_Protoplast_Dedifferentiation/step5_pseudocell_trajectory/probabilistic_walks/GAM_FDR0.01_dedifferentiation_trajectories.txt", header=T)
 gs <- melt(genescores[,2:5])
 
 pdf("residual_block.pdf", width=5, height=5)

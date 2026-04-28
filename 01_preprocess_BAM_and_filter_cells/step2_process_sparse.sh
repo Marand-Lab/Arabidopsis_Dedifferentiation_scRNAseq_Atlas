@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --partition=standard
-#SBATCH --account=amarand1
+#SBATCH --account=YOURNAME1
 #SBATCH --job-name=process_sparse
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1

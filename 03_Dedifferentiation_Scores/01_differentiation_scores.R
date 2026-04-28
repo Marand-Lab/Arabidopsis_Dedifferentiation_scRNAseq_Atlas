@@ -165,7 +165,7 @@ cors <- cors[names(z.score)]
 df <- data.frame(z.score=z.score, pcc=cors, row.names=names(z.score))
 df$p.value <- 2*pnorm(abs(df$z.score), lower.tail=F)
 df$fdr <- p.adjust(df$p.value, method="fdr")
-ann <- read.table("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/Arabidopsis_thaliana.TAIR10.58.annotation.txt", header=F)
+ann <- read.table("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/Arabidopsis_thaliana.TAIR10.58.annotation.txt", header=F)
 id <- ann$V2
 names(id) <- ann$V1
 func <- ann$V3
@@ -197,8 +197,8 @@ plot(seq(1:nrow(s.df)), s.df$z.score, pch=16, cex=pi*((abs(s.df$pcc)+0.3)^2), co
 mg <- c("AT1G04880","AT4G17710","AT2G17950", "AT2G27250")
 
 # cell cycle genes
-cc <- read.table("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/cell_cycle_genes.txt", header=T)
-cd <- read.table("/nfs/turbo/lsa-amarand/shared_data/arabidopsis/reference_data/annotations/cell_death_genes.txt", header=T)
+cc <- read.table("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/cell_cycle_genes.txt", header=T)
+cd <- read.table("/nfs/turbo/lsa-YOURNAME/shared_data/arabidopsis/reference_data/annotations/cell_death_genes.txt", header=T)
 meta <- read.table("All.YJ1_19.metadata.filtered.detailed.06.11.2025.txt")
 exp.cc <- exprs[rownames(exprs) %in% cc$TAIR,]
 exp.cd <- exprs[rownames(exprs) %in% cd$TAIR,]
