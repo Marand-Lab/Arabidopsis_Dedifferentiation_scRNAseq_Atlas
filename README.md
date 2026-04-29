@@ -1,4 +1,4 @@
-# Arabidopsis_Dedifferentiation_scRNAseq_Atlas
+# Arabidopsis Dedifferentiation Temporal and Phytohormone Perturbation scRNAseq Atlas
 
 ![experimental and exemplary data from the protoplast scRNA-seq atlas](img/github_repo_image.png)
 
